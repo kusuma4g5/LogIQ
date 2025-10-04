@@ -1,0 +1,48 @@
+2025-10-04 09:00:01 INFO  Application initialized
+2025-10-04 09:00:05 INFO  Configuration loaded successfully
+2025-10-04 09:01:12 WARN  Low memory detected (available < 200MB)
+2025-10-04 09:01:45 ERROR NullPointerException at com.logiq.core.Engine.run()
+2025-10-04 09:02:00 INFO  User 'john' logged in
+2025-10-04 09:02:15 ERROR ConnectionTimeout while calling external API
+2025-10-04 09:02:44 INFO  Scheduled task executed successfully
+2025-10-04 09:03:01 WARN  Disk usage is above 85%
+2025-10-04 09:03:22 ERROR IndexOutOfBoundsException at com.logiq.parser.LogParser.parse()
+MALFORMED LINE HERE
+2025-10-04 09:04:11 INFO  Session for user 'john' expired
+2025-10-04 09:05:00 INFO  Garbage collection completed
+2025-10-04 09:05:30 WARN  Deprecated API usage detected in module com.logiq.analytics
+2025-10-04 09:06:01 ERROR NullPointerException in com.logiq.ui.Dashboard.render()
+2025-10-04 09:06:15 INFO  User 'alice' logged in
+2025-10-04 09:06:45 ERROR ConnectionTimeout: retrying database connection
+2025-10-04 09:07:10 INFO  Health check passed
+2025-10-04 09:07:55 WARN  Configuration file missing optional property 'cacheSize'
+INVALID LOG ENTRY RANDOM DATA
+2025-10-04 09:08:32 ERROR IndexOutOfBoundsException in com.logiq.report.ReportService
+2025-10-04 09:09:01 INFO  Background worker started
+2025-10-04 09:09:15 INFO  Request processed successfully (ID=1283)
+2025-10-04 09:09:45 ERROR NullPointerException while processing user session
+2025-10-04 09:10:12 WARN  Network latency above threshold
+2025-10-04 09:10:45 INFO  Cache cleared
+2025-10-04 09:11:22 ERROR ConnectionTimeout while accessing cache server
+2025-10-04 09:11:55 INFO  New configuration applied
+BROKEN LOG NO TIMESTAMP WARN SOMETHING
+2025-10-04 09:12:32 WARN  Disk I/O operations slowing down
+2025-10-04 09:13:00 INFO  File upload completed (user=alice)
+2025-10-04 09:13:29 ERROR IndexOutOfBoundsException in com.logiq.storage.FileManager
+2025-10-04 09:13:45 INFO  Backup completed successfully
+2025-10-04 09:14:05 WARN  Memory usage exceeded 90%
+2025-10-04 09:14:45 ERROR NullPointerException at com.logiq.analytics.ReportGenerator.generate()
+2025-10-04 09:15:12 INFO  Report generated for user 'bob'
+2025-10-04 09:15:45 ERROR ConnectionTimeout: failed to reach external service
+2025-10-04 09:16:11 INFO  User 'charlie' logged out
+2025-10-04 09:16:55 WARN  CPU usage exceeded 95%
+2025-10-04 09:17:20 ERROR IndexOutOfBoundsException at com.logiq.cache.CacheManager
+2025-10-04 09:17:59 INFO  Application running smoothly
+2025-10-04 09:18:10 INFO  Scheduled maintenance task started
+2025-10-04 09:18:35 ERROR NullPointerException in com.logiq.security.AuthManager.authenticate()
+RANDOM GIBBERISH ERROR STUFF HERE
+2025-10-04 09:19:01 WARN  Network jitter detected
+2025-10-04 09:19:30 INFO  Metrics reported successfully
+2025-10-04 09:20:00 ERROR ConnectionTimeout while sending logs to server
+2025-10-04 09:20:25 INFO  Shutdown hook executed
+2025-10-04 09:20:59 INFO  Application terminated

@@ -1,0 +1,19 @@
+# Ignore compiled Java class files
+*.class
+
+# Ignore SQLite database files (optional, comment out if you want to keep db in git)
+db/*.db
+data/*.db
+
+# Ignore logs
+logiq_app.log
+
+# Ignore OS and editor files
+.DS_Store
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# Ignore VS Code settings
+.vscode/
