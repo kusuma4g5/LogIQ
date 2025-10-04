@@ -18,14 +18,13 @@ import java.util.regex.Pattern;
 
 public class LogAnalyzer {
 
-    // Regex pattern to match log format: [timestamp] LEVEL message
-    // Example: 2025-10-04 10:15:30 ERROR NullPointer occurred in process
+    
     private static final String LOG_REGEX =
             "(\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}:\\d{2})\\s+(INFO|WARN|ERROR)\\s+(.*)";
 
     private static final Pattern logPattern = Pattern.compile(LOG_REGEX);
 
-    // Reads a log file and inserts parsed entries into DB using batch insert
+    
     public void parseAndInsertLogs(String filePath, Connection conn) {
         java.util.List<LogEntry> batch = new java.util.ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -50,7 +49,7 @@ public class LogAnalyzer {
         }
     }
 
-    // Extracts root cause keyword from a log message
+    
     private String extractRootCause(String message) {
         if (message.contains("NullPointer")) {
             return "NullPointer";
@@ -62,7 +61,7 @@ public class LogAnalyzer {
         return null; // No known root cause
     }
 
-    // Generate log summary: total count, count by level, top 3 root causes
+    
     public void generateSummary(Connection conn) {
         try (Statement stmt = conn.createStatement()) {
 
@@ -96,7 +95,7 @@ public class LogAnalyzer {
         }
     }
 
-    // Main method for testing
+    
     public static void main(String[] args) {
         String logFilePath = "application.log"; // replace with your log file path
 

@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class DatabaseManager {
-    // Internal logger
+    
     private static final Logger LOGGER = Logger.getLogger("LogIQAppLogger");
     static {
         try {
@@ -22,18 +22,18 @@ public class DatabaseManager {
         }
     }
 
-    // Helper for user-friendly error and internal logging
+    
     private static void handleError(String userMsg, Exception e) {
         System.out.println("\u26A0\uFE0F " + userMsg);
         if (e != null) LOGGER.severe(e.toString());
     }
-    // ANSI color codes
+    
     private static final String ANSI_RESET = "\u001B[0m";
     private static final String ANSI_GREEN = "\u001B[32m";
     private static final String ANSI_YELLOW = "\u001B[33m";
     private static final String ANSI_RED = "\u001B[31m";
 
-    // Helper to colorize log level
+    
     private static String colorLevel(String level) {
         switch (level) {
             case "INFO": return ANSI_GREEN + level + ANSI_RESET;
@@ -43,7 +43,7 @@ public class DatabaseManager {
         }
     }
 
-    // Helper to print a log entry
+    
     private static void printLogEntry(ResultSet rs) throws SQLException {
     int id = rs.getInt("id");
     String timestamp = rs.getString("timestamp");
@@ -54,7 +54,7 @@ public class DatabaseManager {
         id, timestamp, colorLevel(level), message, rootCause);
     }
 
-    // Paginated fetch all logs
+    
     public static int fetchLogsPaginated(int limit, int offset) {
         String selectSQL = "SELECT * FROM logs LIMIT ? OFFSET ?";
         int count = 0;
@@ -74,7 +74,7 @@ public class DatabaseManager {
         return count;
     }
 
-    // Paginated fetch by level
+    
     public static int searchLogsByLevelPaginated(String level, int limit, int offset) {
         String searchSQL = "SELECT * FROM logs WHERE level = ? LIMIT ? OFFSET ?";
         int count = 0;
@@ -95,7 +95,7 @@ public class DatabaseManager {
         return count;
     }
 
-    // Paginated fetch by message content
+    
     public static int searchLogsByMessagePaginated(String keyword, int limit, int offset) {
         String searchSQL = "SELECT * FROM logs WHERE message LIKE ? LIMIT ? OFFSET ?";
         int count = 0;
@@ -116,7 +116,7 @@ public class DatabaseManager {
         return count;
     }
 
-    // Paginated fetch by root cause
+    
     public static int searchLogsByRootCausePaginated(String rootCauseKeyword, int limit, int offset) {
         String searchSQL = "SELECT * FROM logs WHERE root_cause LIKE ? LIMIT ? OFFSET ?";
         int count = 0;
@@ -137,7 +137,7 @@ public class DatabaseManager {
         return count;
     }
 
-    // Paginated fetch by date range
+    
     public static int searchLogsByDateRangePaginated(String start, String end, int limit, int offset) {
         String searchSQL = "SELECT * FROM logs WHERE timestamp >= ? AND timestamp <= ? ORDER BY timestamp LIMIT ? OFFSET ?";
         int count = 0;
@@ -161,7 +161,7 @@ public class DatabaseManager {
 
 
 
-    // Search logs by message content
+    
     public static void searchLogsByMessage(String keyword) {
         String searchSQL = "SELECT * FROM logs WHERE message LIKE ?";
         try (Connection conn = connect();
@@ -188,7 +188,7 @@ public class DatabaseManager {
         }
     }
 
-    // Search logs by root cause
+    
     public static void searchLogsByRootCause(String rootCauseKeyword) {
         String searchSQL = "SELECT * FROM logs WHERE root_cause LIKE ?";
         try (Connection conn = connect();
@@ -215,7 +215,7 @@ public class DatabaseManager {
         }
     }
 
-    // Search logs by date range (inclusive)
+    
     public static void searchLogsByDateRange(String start, String end) {
         String searchSQL = "SELECT * FROM logs WHERE timestamp >= ? AND timestamp <= ? ORDER BY timestamp";
         try (Connection conn = connect();
@@ -245,12 +245,12 @@ public class DatabaseManager {
 
     private static final String DB_URL = "jdbc:sqlite:db/logiq.db";
 
-    // Establish connection
+    
     public static Connection connect() throws SQLException {
         return DriverManager.getConnection(DB_URL);
     }
 
-    // Create table
+    
     public static void createLogsTable() {
         String createTableSQL = """
             CREATE TABLE IF NOT EXISTS logs (
@@ -272,7 +272,7 @@ public class DatabaseManager {
         }
     }
 
-    // Insert a log entry using LogEntry object
+    
     public static void insertLog(LogEntry entry) {
         String insertSQL = "INSERT OR IGNORE INTO logs (timestamp, level, message, root_cause) VALUES (?, ?, ?, ?)";
         try (Connection conn = connect();
@@ -292,7 +292,7 @@ public class DatabaseManager {
         }
     }
 
-    // Batch insert for performance
+    
     public static void insertLogsBatch(java.util.List<LogEntry> entries) {
         String insertSQL = "INSERT OR IGNORE INTO logs (timestamp, level, message, root_cause) VALUES (?, ?, ?, ?)";
         try (Connection conn = connect();
@@ -316,7 +316,7 @@ public class DatabaseManager {
         }
     }
 
-    // Fetch and print all logs
+    
     public static void fetchLogs() {
         String selectSQL = "SELECT * FROM logs";
         try (Connection conn = connect();
@@ -340,7 +340,7 @@ public class DatabaseManager {
         }
     }
 
-    // Fetch logs by level
+    
     public static void searchLogsByLevel(String level) {
         String searchSQL = "SELECT * FROM logs WHERE level = ?";
         try (Connection conn = connect();
@@ -372,7 +372,7 @@ public class DatabaseManager {
         }
     }
 
-    // Demo usage
+    
     public static void main(String[] args) {
         createLogsTable();
 

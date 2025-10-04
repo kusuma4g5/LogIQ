@@ -4,7 +4,7 @@ public class LogEntry {
     private String message;
     private String rootCause;
 
-    // Constructor
+    
     public LogEntry(String timestamp, String level, String message, String rootCause) {
         this.timestamp = timestamp;
         this.level = level;
@@ -12,7 +12,7 @@ public class LogEntry {
         this.rootCause = rootCause;
     }
 
-    // Getters
+    
     public String getTimestamp() {
         return timestamp;
     }
@@ -29,7 +29,7 @@ public class LogEntry {
         return rootCause;
     }
 
-    // Setters
+    
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
@@ -46,7 +46,7 @@ public class LogEntry {
         this.rootCause = rootCause;
     }
 
-    // toString for nicely formatted log entry
+    
     @Override
     public String toString() {
         return String.format(

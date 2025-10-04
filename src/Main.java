@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("===== Welcome to LogIQ — Automated Log Root Cause Classifier =====\n");
 
-        // Ensure the logs table exists
         DatabaseManager.createLogsTable();
 
         try (Connection conn = DatabaseManager.connect();
@@ -22,7 +21,6 @@ public class Main {
             boolean exit = false;
 
             while (!exit) {
-                // Display menu
                 System.out.println("\nSelect an operation:");
                 System.out.println("1. Parse log file and insert entries");
                 System.out.println("2. Generate log summary");
