@@ -52,6 +52,3 @@ LogIQ/
 - Duplicate logs are automatically skipped.
 - All errors and key actions are logged to `logiq_app.log`.
 - For best performance, use batch insert for large log files.
-
-## License
-MIT License
